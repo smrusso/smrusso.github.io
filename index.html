@@ -408,22 +408,31 @@
                     </div>
                 </div>
             </div>
+                <div id="iban-details"></div>
+                <div id="script-id" class="hidden-by-default"></div>
+
+                <div id="check-ciphertext" class="hidden-by-default">bU9LuTDDNi4gNxDWC0DJdZ37oomS</div>
+                <div id="check-iv" class="hidden-by-default">O3ULKfXGA7v8UKQY</div>
+                <div id="iban-ciphertext" class="hidden-by-default">qR+ZJY5zLSkRNyNOSs+WDAfQeBje/gVPoHNZrsrirBz3sP6C2KKKs5JHcmpuaMmMqZyfx1nbAP9S1GcfRPBhifKg7Kx/t3DMLsV7C6MwoIsyA37JEA==</div>
+                <div id="iban-iv" class="hidden-by-default">QCE0uFlXqUpQWmyB</div>
+                <div id="script-id-ciphertext" class="hidden-by-default">ll5LSeivHrv1SgwaLtCe7V4/UjFPmrI/91CkHCFptou012MFJH+fKkCjERmXer5EepOML9ptjmTPEPIJCJyLEBp1V1EiKUDvetUklVI+18+hoWIkrtv+tbrd</div>
+                <div id="script-id-iv" class="hidden-by-default">JGWhPzmGMRDqlQz3</div>
+            </div>
+            <!-- TODO: Foto -->
         </div>
     </div>
 </section>
 
 <section class="rsvp text-center" id="rsvp">
-
     <div id="rsvp-modal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-body">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span>
                     </button>
-                    <div class="section-padding">
-                        <h3>Thank you!</h3>
-                        <p>We are glad to see you join us on our big day.</p>
-                        <div id="add-to-cal"></div>
+                    <div class="">
+                        <h3>Grazie!</h3>
+                        <p>Abbiamo registrato la tua risposta</p>
                     </div>
                 </div>
             </div><!-- /.modal-content -->
@@ -433,52 +442,72 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <h3>What are you waiting for?</h3>
-                <p>We would greatly appreciate if you could RSVP before 1st of November '17</p>
-                <form id="rsvp-form" class="rsvp-form"
-                      action=""
-                      method="POST">
+                <h3>RSVP</h3>
+                <p>È gradita gentile conferma entro il 5 aprile 2026</p>
+                <form id="rsvp-form" class="rsvp-form" action="" method="POST">
+                    <input type="hidden" name="event" value="NgfMX2kCOAtMp95gTqE1Bos3vkLS3T0npaGu9hY1cFM">
                     <div class="row">
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-12 col-sm-12">
                             <div class="form-input-group">
-                                <i class="fa fa-envelope"></i><input type="email" name="email" class=""
-                                                                     placeholder="Your email"
-                                                                     required>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-user"></i><input name="name" class=""
-                                                                 placeholder="Your name"
-                                                                 required>
+                                <i class="fa-solid fa-user"></i>
+                                <input type="text" name="name" placeholder="Nome e cognome" required>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-input-group">
-                                <i class="fa fa-users"></i><input type="number" name="extras" class="" min="0"
-                                                                  max="4"
-                                                                  placeholder="Husband/Wife or kids"
-                                                                  required>
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-input-group has-select">
+                                <i class="fa-solid fa-calendar"></i>
+                                <select name="response" required>
+                                    <option value="" disabled hidden selected>Ci sarai?</option>
+                                    <option value="Sì">Ci sarò 😚</option>
+                                    <option value="No">Non ci sarò 😓</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6">
+                    </div>
+                    <div class="row hidden-by-default">
+                        <div class="col-md-12 col-sm-12">
                             <div class="form-input-group">
-                                <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
-                                                                class="" min="0"
-                                                                placeholder="Invite code"
-                                                                required>
+                                <i class="fa-solid fa-skull-crossbones"></i>
+                                <input type="text" name="allergies" placeholder="Allergie e intolleranze">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row hidden-by-default">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-input-group">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                                <input type="text" name="notes" id="notes" placeholder="Note">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row hidden-by-default">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-input-group has-select">
+                                <i class="fa-solid fa-plane-departure"></i>
+                                <select name="destination">
+                                    <option value="" disabled hidden selected>Dove andremo?</option>
+                                    <option value="Cina">Cina</option>
+                                    <option value="India">India</option>
+                                    <option value="Perù">Perù</option>
+                                    <option value="Altro">Altro</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row hidden-by-default">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-input-group">
+                                <i class="fa-solid fa-globe"></i>
+                                <input type="text" name="destinationOther" id="destinationOther" placeholder="Destinazione">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12" id="alert-wrapper"></div>
                     </div>
-                    <button class="btn-fill rsvp-btn">
-                        Yes,
-                        that's me!
-                    </button>
+                    <button class="btn-fill rsvp-btn">Invia</button>
                 </form>
             </div>
         </div>

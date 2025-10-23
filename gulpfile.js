@@ -26,5 +26,11 @@ gulp.task('minify-js', function () {
         .pipe(gulp.dest('./js'));
 });
 
+// copy decrypt worker
+gulp.task('copy-decrypt-worker', function () {
+    return gulp.src('./js/decrypt.js')
+        .pipe(gulp.dest('./js'));
+});
+
 // default task
-gulp.task('default', gulp.series('sass', 'minify-js'));
+gulp.task('default', gulp.series('sass', 'minify-js', 'copy-decrypt-worker'));

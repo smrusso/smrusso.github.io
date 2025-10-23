@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Offline Encryptor</title>
+</head>
+<body>
+<h1>Offline IBAN Encryptor</h1>
+<p>Enter your master scriptId and the sensitive data below to encrypt it.</p>
+
+<label for="secret">Secret string:</label><br>
+<input type="text" id="secret" size="100"><br><br>
+
+<label for="scriptId">Script ID:</label><br>
+<input type="text" id="scriptId" size="100"><br><br>
+
+<label for="iban">IBAN:</label><br>
+<input type="text" id="iban" size="50"><br><br>
+
+<label for="owner">Account Owner:</label><br>
+<input type="text" id="owner" size="50"><br><br>
+
+<button onclick="encryptData()">Encrypt</button>
+
+<hr>
+
+<h2>Outputs:</h2>
+<p>Copy these values into your project's files as instructed.</p>
+<strong>Encrypted Data (for index.html):</strong><br>
+<pre id="encryptedOutput"></pre>
+
+<script>
+    async function encryptData() {
+        const secret = document.getElementById('secret').value;
+        const scriptId = document.getElementById('scriptId').value;
+        const iban = document.getElementById('iban').value;
+        const owner = document.getElementById('owner').value;
+
+        if (!secret || !scriptId || !iban || !owner) {
+            alert('Please fill all fields.');
+            return;
+        }
+
+        // --- 2. Encrypt Data ---
+        const salt = new Uint8Array([11, 22, 33, 44, 55, 66, 77, 88, 99, 10, 11,
+            12, 13, 14, 15, 16]); // Hardcoded salt
+        const iterations = 10000;
+        const keyMaterial = await crypto.subtle.importKey(
+            'raw',
+            base64UrlToBytes(secret),
+            {name: 'PBKDF2'},
+            false,
+            ['deriveKey']
+        );
+
+        const key = await crypto.subtle.deriveKey(
+            {
+                name: 'PBKDF2',
+                salt: salt,
+                iterations: iterations,
+                hash: 'SHA-256'
+            },
+            keyMaterial,
+            {name: 'AES-GCM', length: 256},
+            true,
+            ['encrypt', 'decrypt']
+        );
+
+        const toBase64 = (buffer) => btoa(String.fromCharCode.apply(null, new
+        Uint8Array(buffer)));
+
+        const encoder = new TextEncoder();
+
+        const encrypt = async (plaintext) => {
+            const iv = crypto.getRandomValues(new Uint8Array(12)); // 96-bit IV
+            const encryptedData = await crypto.subtle.encrypt(
+                {
+                    name: 'AES-GCM',
+                    iv: iv
+                },
+                key,
+                encoder.encode(plaintext)
+            );
+
+            return {
+                ciphertext: toBase64(encryptedData),
+                iv: toBase64(iv)
+            };
+        };
+
+        const encryptedScriptId = await encrypt(scriptId);
+        const encryptedIban = await encrypt(JSON.stringify({iban, owner}));
+        const encryptedCheck = await encrypt('check');
+
+        document.getElementById('encryptedOutput').textContent =
+            'Encrypted Check (for data-check-ciphertext attribute):\n' +
+            encryptedCheck.ciphertext +
+            '\n\nIV (for data-check-iv attribute):\n' +
+            encryptedCheck.iv +
+            '\n\nEncrypted IBAN (for data-iban-ciphertext attribute):\n' +
+            encryptedIban.ciphertext +
+            '\n\nIV (for data-iban-iv attribute):\n' +
+            encryptedIban.iv +
+            '\n\nEncrypted Script ID (for data-script-id-ciphertext attribute):\n' +
+            encryptedScriptId.ciphertext +
+            '\n\nIV (for data-script-id-iv attribute):\n' +
+            encryptedScriptId.iv
+    }
+
+    function base64UrlToBytes(base64Url) {
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const binaryString = atob(base64);
+        const bytes = new Uint8Array(binaryString.length);
+        for (let i = 0; i < binaryString.length; i++) {
+            bytes[i] = binaryString.charCodeAt(i);
+        }
+        return bytes;
+    }
+</script>
+</body>
+</html>
