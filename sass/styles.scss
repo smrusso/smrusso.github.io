@@ -365,41 +365,20 @@ Hero
 }
 
 /* ==========================================================================
-.hero-strip
+Intro
 ========================================================================== */
-.hero-strip {
-  margin-top: 120px;
-  background: #333844 url("../img/polygonal-bg.jpg") no-repeat center center;
-  padding-bottom: 190px;
-  position: relative;
-
-  i {
-    font-family: $accent-font;
-    font-weight: 300;
-    font-size: 25px;
-    color: #F69D52;
-    vertical-align: top;
-    margin-left: -8px;
-    font-style: normal;
-  }
-  h2 {
-    color: #fff;
-    margin: 0 0 20px 0;
-  }
-  p {
-    color: #ACB1B4;
-  }
-  .btn {
-    margin-top: 10px;
-  }
-  .logo-placeholder {
-    width: 230px;
-    height: 230px;
-    position: absolute;
-    bottom: -285px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+.quote {
+  font-family: $serif;
+  font-style: italic;
+  font-weight: $light;
+  margin-bottom: 0;
+}
+.quote-author {
+  font-family: $serif;
+  font-weight: $light;
+  margin-top: -6px;
+  text-align: right;
+  text-align-last: right;
 }
 
 /* ==========================================================================
