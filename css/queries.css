@@ -4,16 +4,13 @@
         margin: 0 auto;
     }
 
+    #hero {
+        background-position-y: top;
+    }
+
     .intro-content {
         display: inline-block;
         width: 70%;
-    }
-
-}
-
-@media screen and (max-width: 1024px) {
-    .hero .hero-content {
-        padding-top: 50%;
     }
 }
 
@@ -22,10 +19,6 @@
     header {
         width: 90%;
         padding-left: 25px;
-    }
-
-    .hero .hero-content {
-        padding-top: 50%;
     }
 
     .header-nav {
@@ -253,10 +246,6 @@
 }
 
 @media screen and (max-width: 640px) {
-    .hero .hero-content {
-        padding-top: 100%;
-    }
-
     #eng-pics .img-wrap i {
         font-size: 25px;
         position: absolute;
@@ -292,28 +281,6 @@
 }
 
 @media screen and (max-width: 480px) {
-    .hero .hero-content {
-        padding-top: 110%;
-    }
-    
-    .hero .hero-content img {
-        width: 65%;
-    }
-
-    .hero .btn {
-        display: block;
-        width: 80%;
-        margin: 0 auto;
-    }
-
-    .hero .btn:first-of-type {
-        margin-bottom: 20px;
-    }
-
-    .hero h1 {
-        font-size: 50px;
-    }
-
     .btn-margin-right {
         margin-right: 0px;
     }
@@ -349,17 +316,9 @@
         padding-bottom: 0;
     }
 
-    .down-arrow {
-        display: none;
-    }
-
 }
 
 @media screen and (max-width: 320px) {
-    .hero .hero-content {
-        padding-top: 130%;
-    }
-
     .rsvp {
         padding-top: 20px;
     }
