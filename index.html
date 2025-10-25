@@ -136,7 +136,10 @@
             Ogni suggerimento è ben accetto!
             Se voleste aiutarci a scegliere e partecipare al nostro viaggio di nozze:
         </p>
-        <div id="iban-details"></div>
+        <h5 id="gift-decrypting">Decifrando i dati...</h5>
+        <h5 id="gift-scan-qr" class="d-none">Scansiona il codice QR per vedere i dettagli</h5>
+        <h5 id="gift-iban" class="d-none">IBAN: <span id="gift-iban-value"></span></h5>
+        <h5 id="gift-owner" class="d-none">Intestato a: <span id="gift-owner-value"></span></h5>
         <img class="col-12 col-lg-6 mt-3" src="img/travel-min.jpg" alt="Simone e Martina in aeroporto" />
     </div>
 
@@ -163,11 +166,11 @@
             <input type="hidden" name="event" value="NgfMX2kCOAtMp95gTqE1Bos3vkLS3T0npaGu9hY1cFM">
             <div class="form-input-group">
                 <i class="fa-solid fa-user"></i>
-                <input type="text" name="name" placeholder="Nome e cognome" required>
+                <input id="rsvp-form-name" type="text" name="name" placeholder="Nome e cognome" required>
             </div>
             <div class="form-input-group has-select">
                 <i class="fa-solid fa-calendar"></i>
-                <select name="response" class="form-select" required>
+                <select id="rsvp-form-response" class="form-select" name="response" required>
                     <option value="" disabled hidden selected>Ci sarai?</option>
                     <option value="Sì">Ci sarò 😚</option>
                     <option value="No">Non ci sarò 😓</option>
@@ -175,15 +178,15 @@
             </div>
             <div class="form-input-group d-none">
                 <i class="fa-solid fa-skull-crossbones"></i>
-                <input type="text" name="allergies" placeholder="Allergie e intolleranze">
+                <input id="rsvp-form-allergies" type="text" name="allergies" placeholder="Allergie e intolleranze">
             </div>
             <div class="form-input-group d-none">
                 <i class="fa-solid fa-pen-to-square"></i>
-                <input type="text" name="notes" id="notes" placeholder="Note">
+                <input id="rsvp-form-notes" type="text" name="notes" placeholder="Note">
             </div>
             <div class="form-input-group d-none has-select">
                 <i class="fa-solid fa-plane-departure"></i>
-                <select name="destination" class="form-select">
+                <select id="rsvp-form-destination" class="form-select" name="destination">
                     <option value="" disabled hidden selected>Dove andremo?</option>
                     <option value="Cina">Cina</option>
                     <option value="India">India</option>
@@ -193,7 +196,7 @@
             </div>
            <div class="form-input-group d-none">
                 <i class="fa-solid fa-globe"></i>
-                <input type="text" name="destinationOther" id="destinationOther" placeholder="Destinazione">
+                <input id="rsvp-form-destination-other" type="text" name="destinationOther" placeholder="Destinazione">
            </div>
             <div class="row">
                 <div class="col-12" id="alert-wrapper"></div>
