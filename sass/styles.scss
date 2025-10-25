@@ -1,8 +1,42 @@
-@use "partials/buttons" as *;
-@use "partials/colors" as *;
-@use "partials/forms" as *;
-@use "partials/layout" as *;
-@use "partials/typography" as *;
+// 1. Bootstrap functions
+@import "../node_modules/bootstrap/scss/functions";
+
+// 2. Optional: your variable overrides BEFORE the rest
+@import "partials/colors";
+$enable-negative-margins: true;
+
+// 3. Bootstrap required imports
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
+
+// 4. Bootstrap core and components (optional, include what you need)
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/type";
+@import "../node_modules/bootstrap/scss/alert";
+@import "../node_modules/bootstrap/scss/buttons";
+@import "../node_modules/bootstrap/scss/close";
+@import "../node_modules/bootstrap/scss/containers";
+@import "../node_modules/bootstrap/scss/forms";
+@import "../node_modules/bootstrap/scss/grid";
+@import "../node_modules/bootstrap/scss/images";
+@import "../node_modules/bootstrap/scss/modal";
+@import "../node_modules/bootstrap/scss/navbar";
+@import "../node_modules/bootstrap/scss/offcanvas";
+@import "../node_modules/bootstrap/scss/toasts";
+
+// 5. Helpers and utilities
+@import "../node_modules/bootstrap/scss/helpers";
+@import "../node_modules/bootstrap/scss/utilities";
+@import "../node_modules/bootstrap/scss/utilities/api";
+
+
+@import "partials/forms";
+@import "partials/typography";
+
+
 
 // Google Fonts
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
