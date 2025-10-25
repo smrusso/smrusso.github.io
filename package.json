@@ -1,28 +1,29 @@
 {
   "name": "wedding-website",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "A wedding website with loads of features.",
   "main": "npmfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "node scripts/build.js",
+    "build:css": "sass sass/styles.scss dist/styles.min.css --style=compressed",
+    "build:js": "esbuild js/scripts.js --bundle --minify --sourcemap --outfile=dist/scripts.min.js",
+    "build": "npm run prebuild && npm run build:css && npm run build:js"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:rampatra/wedding-website.git"
+    "url": "git+ssh://git@github.com:smrusso/wedding-website.git"
   },
   "keywords": [
     "wedding",
     "template",
     "website template"
   ],
-  "author": "Ram Patra",
+  "author": "aserpi",
   "license": "GPL-3.0",
-  "homepage": "https://github.com/rampatra/wedding-website",
+  "homepage": "https://github.com/smrusso/smrusso.github.io",
   "devDependencies": {
-    "gulp": "~5.0",
-    "gulp-rename": "~2.1",
-    "gulp-sass": "~6.0",
-    "gulp-uglify": "~3.0",
+    "esbuild": "~0.25.11",
     "sass": "~1.93"
   },
   "dependencies": {
