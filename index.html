@@ -159,80 +159,52 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <h3>RSVP</h3>
-                <p>È gradita gentile conferma entro il 5 aprile 2026</p>
-                <form id="rsvp-form" class="rsvp-form" action="" method="POST">
-                    <input type="hidden" name="event" value="NgfMX2kCOAtMp95gTqE1Bos3vkLS3T0npaGu9hY1cFM">
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12">
-                            <div class="form-input-group">
-                                <i class="fa-solid fa-user"></i>
-                                <input type="text" name="name" placeholder="Nome e cognome" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12">
-                            <div class="form-input-group has-select">
-                                <i class="fa-solid fa-calendar"></i>
-                                <select name="response" required>
-                                    <option value="" disabled hidden selected>Ci sarai?</option>
-                                    <option value="Sì">Ci sarò 😚</option>
-                                    <option value="No">Non ci sarò 😓</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row hidden-by-default">
-                        <div class="col-md-12 col-sm-12">
-                            <div class="form-input-group">
-                                <i class="fa-solid fa-skull-crossbones"></i>
-                                <input type="text" name="allergies" placeholder="Allergie e intolleranze">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row hidden-by-default">
-                        <div class="col-md-12 col-sm-12">
-                            <div class="form-input-group">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                                <input type="text" name="notes" id="notes" placeholder="Note">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row hidden-by-default">
-                        <div class="col-md-12 col-sm-12">
-                            <div class="form-input-group has-select">
-                                <i class="fa-solid fa-plane-departure"></i>
-                                <select name="destination">
-                                    <option value="" disabled hidden selected>Dove andremo?</option>
-                                    <option value="Cina">Cina</option>
-                                    <option value="India">India</option>
-                                    <option value="Perù">Perù</option>
-                                    <option value="Altro">Altro</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row hidden-by-default">
-                        <div class="col-md-12 col-sm-12">
-                            <div class="form-input-group">
-                                <i class="fa-solid fa-globe"></i>
-                                <input type="text" name="destinationOther" id="destinationOther" placeholder="Destinazione">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12" id="alert-wrapper"></div>
-                    </div>
-                    <button class="btn-fill rsvp-btn">Invia</button>
-                </form>
+        <h3>RSVP</h3>
+        <p>È gradita gentile conferma entro il 5 aprile 2026</p>
+        <form id="rsvp-form" class="rsvp-form col-12 col-lg-6" action="" method="POST">
+            <input type="hidden" name="event" value="NgfMX2kCOAtMp95gTqE1Bos3vkLS3T0npaGu9hY1cFM">
+            <div class="form-input-group">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="name" placeholder="Nome e cognome" required>
             </div>
-        </div>
+            <div class="form-input-group has-select">
+                <i class="fa-solid fa-calendar"></i>
+                <select name="response" class="form-select" required>
+                    <option value="" disabled hidden selected>Ci sarai?</option>
+                    <option value="Sì">Ci sarò 😚</option>
+                    <option value="No">Non ci sarò 😓</option>
+                </select>
+            </div>
+            <div class="form-input-group d-none">
+                <i class="fa-solid fa-skull-crossbones"></i>
+                <input type="text" name="allergies" placeholder="Allergie e intolleranze">
+            </div>
+            <div class="form-input-group d-none">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <input type="text" name="notes" id="notes" placeholder="Note">
+            </div>
+            <div class="form-input-group d-none has-select">
+                <i class="fa-solid fa-plane-departure"></i>
+                <select name="destination" class="form-select">
+                    <option value="" disabled hidden selected>Dove andremo?</option>
+                    <option value="Cina">Cina</option>
+                    <option value="India">India</option>
+                    <option value="Perù">Perù</option>
+                    <option value="Altro">Altro</option>
+                </select>
+            </div>
+           <div class="form-input-group d-none">
+                <i class="fa-solid fa-globe"></i>
+                <input type="text" name="destinationOther" id="destinationOther" placeholder="Destinazione">
+           </div>
+            <div class="row">
+                <div class="col-12" id="alert-wrapper"></div>
+            </div>
+            <button class="btn btn-primary rsvp-btn text-uppercase fs-6">Invia</button>
+        </form>
     </div>
-</section>
+</div>
+
 <div class="container mt-5">
     <div id="video-cover">
         <div id="player"></div>
