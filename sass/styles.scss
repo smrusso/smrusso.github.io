@@ -1,9 +1,18 @@
 // 1. Bootstrap functions
 @import "../node_modules/bootstrap/scss/functions";
 
-// 2. Optional: your variable overrides BEFORE the rest
-@import "partials/colors";
-$enable-negative-margins: true;
+// 2. Optional: Bootstrap SASS variable overrides
+$body-color: #889c82;
+$font-family-sans-serif: "Noto Sans Display", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-serif: 'Noto Serif', Georgia, 'Times New Roman', serif;
+$headings-color: #595e50;
+$headings-font-weight: 700;
+$headings-margin-bottom: 0.375rem;
+$line-height-base: 1.7;
+$link-color: $body-color;
+$navbar-nav-link-padding-x: .75rem;
+$navbar-padding-x: 8px;
+$primary: #800032;
 
 // 3. Bootstrap required imports
 @import "../node_modules/bootstrap/scss/variables";
@@ -12,7 +21,7 @@ $enable-negative-margins: true;
 @import "../node_modules/bootstrap/scss/mixins";
 @import "../node_modules/bootstrap/scss/root";
 
-// 4. Bootstrap core and components (optional, include what you need)
+// 4. Bootstrap core and components (only those used)
 @import "../node_modules/bootstrap/scss/reboot";
 @import "../node_modules/bootstrap/scss/type";
 @import "../node_modules/bootstrap/scss/alert";
@@ -32,668 +41,302 @@ $enable-negative-margins: true;
 @import "../node_modules/bootstrap/scss/utilities";
 @import "../node_modules/bootstrap/scss/utilities/api";
 
-
-@import "partials/forms";
-@import "partials/typography";
-
-
-
-// Google Fonts
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
-@import url(https://fonts.googleapis.com/css?family=Merriweather:400,300,400italic,300italic,700,700italic);
-@import url(https://fonts.googleapis.com/css?family=Nunito:400,300,700);
+// Gogle fonts
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* ==========================================================================
-Global Styles
+Bootstrap overrides
 ========================================================================== */
-.group:after {
-  content: "";
-  display: table;
-  clear: both;
+.icon-link {
+  &:hover span {
+    text-decoration: underline; // Underline only the text
+  }
+
+  i {
+    font-size: 0.95em;
+    line-height: 1;
+    text-decoration: none !important;
+  }
+
+  &.icon-link-hover {
+    &:hover i {
+      transform: translateX(0.25rem); // Move icon slightly right
+    }
+
+    i {
+      transition: transform 0.2s ease-in-out; // Smooth motion
+    }
+  }
 }
-.hidden-by-default {
-  display: none;
+
+.modal .btn-close {
+  z-index: 1;  // Necessary for hover
 }
-.no-padding {
-  padding: 0;
+
+.navbar {
+  background: linear-gradient(90deg, shift-color($primary, 35%) 0%, $primary 100%);
 }
-.no-margin {
-  margin: 0;
+
+.text-end {
+  text-align-last: end;
 }
-a {
-  color: $accent-color;
-  -webkit-transition-timing-function: ease;
-  transition-timing-function: ease;
-  -webkit-transition-duration: 200ms;
-  transition-duration: 200ms;
-  -webkit-transition-property: color, border-color, background-color;
-  transition-property: color, border-color, background-color;
+
+.text-start {
+  text-align-last: start;
 }
-a:hover, a:focus {
-  color: $accent-color-hover;
-  text-decoration: none;
-}
-body {
-  font-family: $sans-serif;
-  font-weight: $light;
-  color: $txt-primary;
-  -webkit-text-size-adjust: 100%;
-  //fix for iOS
-}
-*:focus {
-  outline: none !important;
-}
-ul, ol {
-  margin: 0;
-  padding: 0;
-}
-ul li {
-  list-style: none;
-}
-section .header {
-  padding-bottom: 30px;
-}
-.section-padding {
-  padding: $section-padding;
-}
-.section-border {
-  border-bottom: 1px solid $keyline-color;
-}
-.tooltip {
-  position: absolute;
-  z-index: 1070;
-  display: block;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  font-weight: normal;
-  line-height: 1.4;
-  visibility: visible;
-  filter: alpha(opacity=0);
-  opacity: 0;
-}
-.tooltip.in {
-  filter: alpha(opacity=90);
-  opacity: .9;
-}
-.tooltip.top {
-  padding: 5px 0;
-  margin-top: -3px;
-}
-.tooltip.right {
-  padding: 0 5px;
-  margin-left: 3px;
-}
-.tooltip.bottom {
-  padding: 5px 0;
-  margin-top: 3px;
-}
-.tooltip.left {
-  padding: 0 5px;
-  margin-left: -3px;
-}
-.tooltip-inner {
-  max-width: 200px;
-  padding: 3px 8px;
-  color: #fff;
+
+h5 {
+  letter-spacing: 1px;
   text-align: center;
-  text-decoration: none;
-  text-transform: capitalize;
-  background-color: #000;
-  border-radius: 4px;
 }
+
+h6 {
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+p {
+  text-align: justify;
+  text-align-last: center;
+}
+
 /* ==========================================================================
 Animations
 ========================================================================== */
-.pulse2 {
-  animation-name: pulse2;
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
 @keyframes pulse2 {
-  0% {
-    transform: scale(1.1);
-  }
-  50% {
-    transform: scale(0.8);
-  }
-  100% {
+  0%, 100% {
     transform: scale(1);
   }
-}
-.floating-arrow {
-  animation-name: floating-arrow;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-}
-@keyframes floating-arrow {
-  from {
-    transform: translate(-50%, 0)
-  }
-  65% {
-    transform: translate(-50%, 15px)
-  }
-  to {
-    transform: translate(-50%, 0)
-  }
-}
-.floating-logo {
-  animation-name: floating-logo;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-}
-@keyframes floating-logo {
-  from {
-    transform: translate(-50%, 0)
-  }
   50% {
-    transform: translate(-50%, 10px)
-  }
-  to {
-    transform: translate(-50%, 0)
+    transform: scale(1.3);
   }
 }
 
-/* ==========================================================================
-Waypoinsts
-========================================================================== */
-.wp1, .wp2, .wp3, .wp4, .wp5, .wp6, .wp7, .wp8, .wp9 {
-  visibility: hidden
-}
-.wp8, .wp9 {
-  -webkit-animation-delay: 0.3s;
-  animation-delay: 0.3s
-}
-.bounceInLeft, .bounceInRight, .fadeInUp, .fadeInUpDelay, .fadeInDown, .fadeInUpD, .fadeInLeft, .fadeInRight, .bounceInDown {
-  visibility: visible
-}
-
-/* ==========================================================================
-Navigation
-========================================================================== */
-.header-nav.open {
-  visibility: visible;
-  opacity: 0.9;
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
-}
-.nav-toggle {
-  position: absolute;
-  top: 0;
-  right: 15px;
-  z-index: 999999;
-  padding: 10px 35px 16px 0;
-  cursor: pointer
-}
-.nav-toggle:focus {
-  outline: none
-}
-.nav-toggle span, .nav-toggle span:before, .nav-toggle span:after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 35px;
-  height: 3px;
-  -moz-border-radius: 1px;
-  -webkit-border-radius: 1px;
-  border-radius: 1px;
-  background: #fff;
-  cursor: pointer
-}
-.nav-toggle span:before {
-  top: -10px
-}
-.nav-toggle span:after {
-  bottom: -10px
-}
-.nav-toggle span, .nav-toggle span:before, .nav-toggle span:after {
-  -moz-transition: all 300ms ease-in-out;
-  -o-transition: all 300ms ease-in-out;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out
-}
-.nav-toggle.active span {
-  background-color: transparent
-}
-.nav-toggle.active span:before, .nav-toggle.active span:after {
-  top: 0
-}
-.nav-toggle.active span:before {
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg)
-}
-.nav-toggle.active span:after {
-  top: 10px;
-  -moz-transform: translatey(-10px) rotate(-45deg);
-  -ms-transform: translatey(-10px) rotate(-45deg);
-  -o-transform: translatey(-10px) rotate(-45deg);
-  -webkit-transform: translatey(-10px) rotate(-45deg);
-  transform: translatey(-10px) rotate(-45deg)
-}
-.navicon {
-  position: absolute;
-  height: 26px;
-  right: 10px;
-  top: 48px;
-  visibility: hidden;
-  transition: all 300ms ease-in-out;
-}
-.navigation {
-  transition: all 300ms ease-in-out;
-  position: fixed;
-  width: 100%;
-  z-index: 999;
-}
-.fixed {
-  position: fixed;
-  background-color: rgba(55, 36, 40, .88);
-  z-index: 999;
-  width: 100%;
-}
-header {
-  padding: 50px 0;
-  border-bottom: solid 1px rgba(255, 255, 255, 0.2);
-  position: relative;
-  width: 1170px;
-  margin: 0 auto;
-  transition: padding 300ms ease-in-out;
-
-  a {
-    color: $txt-light;
-    text-transform: uppercase;
-    font-size: $nav-font-size;
-
-    &.login {
-      margin-right: 20px;
-    }
-  }
-  .logo {
-    display: inline-block;
-  }
-  .logo img {
-    height: 19px;
-  }
-  ul.primary-nav {
-    margin: 0 0 0 75px;
-    padding: 0;
-
-    li {
-      display: inline;
-
-      a {
-        color: $txt-light;
-        padding-right: 25px;
-
-        &:hover {
-          color: $accent-color;
-        }
-      }
-      &:last-child a {
-        padding-right: 0px;
-      }
-    }
-  }
-  ul.member-actions {
-    li {
-      display: inline;
-
-      a {
-        color: $txt-light;
-
-        &:hover {
-          color: $accent-color;
-        }
-      }
-    }
-  }
-  .header-nav {
-    display: inline-block;
-  }
-  .member-actions {
-    position: absolute;
-    right: 0;
-    top: 41px;
-    transition: all 300ms ease-in-out;
-  }
+.pulse2 {
+  animation: pulse2 1.2s infinite ease-in-out;
+  color: red;
+  display: inline-block;
+  font-size: 1rem;
 }
 
 /* ==========================================================================
 Hero
 ========================================================================== */
 #hero {
-  min-height: 825px;
-  max-width: 1500px;
-  background: url('../img/hero-min.jpg') center -65px;  //  TODO:
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  background: url('../img/hero-min.jpg') center top;
   background-size: cover;
-  position: relative;
   margin: auto;
-}
-
-/* ==========================================================================
-.features-extra
-========================================================================== */
-.features-extra {
+  min-height: 740px;
   position: relative;
-  z-index: 3;
-
-  .btn {
-    margin-top: 20px;
-  }
-  .macbook-wrap {
-    position: absolute;
-    width: 916px;
-    height: 540px;
-    background: url("../img/macbook-pro.png") no-repeat center center;
-    top: 114px;
-    z-index: 4;
-    left: 50%;
-  }
 }
 
 /* ==========================================================================
 Intro
 ========================================================================== */
 .quote {
-  font-family: $serif;
-  font-style: italic;
-  font-weight: $light;
-  margin-bottom: 0;
-}
-.quote-author {
-  font-family: $serif;
-  font-weight: $light;
-  margin-top: -6px;
-  text-align: right;
-  text-align-last: right;
+  font-family: $font-family-serif;
 }
 
 /* ==========================================================================
-.events
+RSVP  TODO
 ========================================================================== */
-.events {
-  .leftcol {
-    padding-right: 100px;
-    border-right: solid 1px $keyline-color;
-  }
-  .rightcol {
-    padding-left: 100px;
-  }
+$form-placeholder: rgba($primary, 0.5);
+$keyline-color: #e6e9ea;  // TODO
 
-  .time {
-    font-size: 13px;
-    font-style: italic;
-    text-transform: lowercase;
-    color: $txt-primary;
-  }
-}
-
-/* ==========================================================================
-.blog
-========================================================================== */
-.blog {
-  padding-bottom: 120px;
-
-  img {
+.rsvp-form {
+  .rsvp-btn {
+    padding: 15px 0;
+    border-radius: 3px;
     width: 100%;
-    height: auto;
-    -moz-transition: all 300ms ease-in-out;
-    -o-transition: all 300ms ease-in-out;
-    -webkit-transition: all 300ms ease-in-out;
-    transition: all 300ms ease-in-out;
   }
-  h2 {
-    font-size: $blog-post-title;
-    color: $txt-accent;
-    font-weight: $semibold;
-    text-transform: uppercase;
-    margin-top: 35px;
-  }
-  .btn {
-    margin-top: 20px;
-  }
-  .blog-img-wrap {
+  .form-input-group {
+    width: 100%;
+    height: 55px;
+    margin: 0 auto 10px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: solid 1px $keyline-color;
+    text-align: left;
     position: relative;
-    overflow: hidden;
 
-    .overlay {
+    i {
+      color: $primary;
+      font-size: 14px;
+    }
+    i:not(.has-select):after {
+      content: "";
+      height: 30px;
+      width: 1px;
+      border-right: solid 1px $keyline-color;
       position: absolute;
+      top: 50%;
+      left: 30px;
+      transform: translateY(-50%);
+    }
+    i.fa-solid {
+      font-size: 14px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      margin-left: 20px;
+    }
+    input {
+      padding-left: 68px;
       width: 100%;
       height: 100%;
-      background-color: rgba($white-color, 0.5);
-      -moz-transition: all 300ms ease-in-out;
-      -o-transition: all 300ms ease-in-out;
-      -webkit-transition: all 300ms ease-in-out;
-      transition: all 300ms ease-in-out;
-      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-      filter: alpha(opacity=0);
-      opacity: 0;
+      -moz-border-radius: 6px;
+      -webkit-border-radius: 6px;
+      border-radius: 6px;
+      border: none;
+      color: $primary;
+
+      &:focus {
+        border-color: $primary;    /* match your select icon color */
+        box-shadow: 0 0 0 0.25rem rgba($primary, 0.25); /* optional glow effect */
+        outline: none;                  /* remove default outline */
+        color: $primary;           /* optional: text color on focus */
+      }
     }
-    i {
-      color: $white-color;
-      font-size: 20px;
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      top: 25px;
-      right: 35px;
+    input::-webkit-input-placeholder {
+      color: $form-placeholder;
+    }
+    input:-moz-placeholder {
+      color: $form-placeholder;
+    }
+    input::-moz-placeholder {
+      color: $form-placeholder;
+    }
+    input:-ms-input-placeholder {
+      color: $form-placeholder;
+    }
+    select {
+      padding-left: 68px;
+      width: 100%;
+      height: 100%;
+      -moz-border-radius: 6px;
+      -webkit-border-radius: 6px;
+      border-radius: 6px;
+      border: none;
+      background-color: transparent;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      color: $form-placeholder;
+
+      &.has-value {
+        color: $primary;
+      }
+    }
+    option {
+      color: $primary;
     }
   }
-  .blog-img-wrap:hover img, .blog-img-wrap:focus img {
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
-  }
-  .blog-img-wrap:hover .overlay, .blog-img-wrap:focus .overlay {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1)";
-    filter: alpha(opacity=1);
-    opacity: 1;
-    z-index: 9;
-  }
-  figcaption i {
-    margin-left: 5px;
-    font-size: 15px;
-  }
-  figcaption a.blog-post-title {
-    color: $txt-primary;
-  }
-  figcaption a.blog-post-title:hover, figcaption a.blog-post-title:focus {
-    color: $txt-secondary;
+}
+
+.rsvp h6 {
+  color: $primary;
+}
+
+.rsvp p {
+  color: $primary;
+}
+
+#rsvp-modal .btn-close {
+  z-index: 1;  // Necessary for hover
+
+  &:hover {
+    color: $headings-color;
   }
 }
 
 /* ==========================================================================
-Instagram
+YouTube video
 ========================================================================== */
-#instagram {
-  img {
-    width: 100%;
-  }
-}
-
-/* ==========================================================================
-Engagement Pics
-========================================================================== */
-#eng-pics {
-  img {
-    width: 100%;
-    height: auto;
-    -moz-transition: all 300ms ease-in-out;
-    -o-transition: all 300ms ease-in-out;
-    -webkit-transition: all 300ms ease-in-out;
-    transition: all 300ms ease-in-out;
-  }
-  .img-wrap {
-    position: relative;
-    overflow: hidden;
-    border-radius: 4px;
-  }
-  .img-wrap .overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
-    -moz-transition: all 300ms ease-in-out;
-    -o-transition: all 300ms ease-in-out;
-    -webkit-transition: all 300ms ease-in-out;
-    transition: all 300ms ease-in-out;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: alpha(opacity=0);
-    opacity: 0; }
-  .img-wrap i {
-    color: #fff;
-    font-size: 15px;
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    top: 6px;
-    right: 6px; }
-  .img-wrap:hover img, .img-wrap:focus img {
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1); }
-  .img-wrap:hover .overlay, .img-wrap:focus .overlay {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1)";
-    filter: alpha(opacity=1);
-    opacity: 1;
-    z-index: 9; }
-  .diamond {
-    width: 230px;
-    height: 230px;
-    position: absolute;
-    bottom: -145px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 500;
-  }
-  .ring {
-    width: 75px;
-    height: 75px;
-    border-radius: 75px;
-    border: 10px solid #d0d3d4;
-    position: absolute;
-    left: 34%;
-    top: 75%;
-    z-index: -1;
-  }
-}
-
-/* ==========================================================================
-Embed video
-========================================================================== */
-#video-bg {
-  height: 300px;
-}
 #video-content {
-  width: 100%;
-  height: 100%;
-  padding-top: 100px;
   position: relative;
-  background: rgba(17, 17, 17, 0.5);
   text-align: center;
-}
-#video-content h5 {
-  color: #ffffff;
-  font-size: 30px;
-  font-weight: 300;
-  letter-spacing: 10px;
-}
-#video-content p {
-  color: #ffffff;
+  z-index: 1;
 }
 
-/* ==========================================================================
-Google map
-========================================================================== */
-#map-canvas {
-  height: 500px;
+.video-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  left: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
   width: 100%;
+  z-index: 5; /* Between iframe (0) and text (10) */
 }
-#map-content-wrapper {
+
+#video-text {
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10; // Ensures it’s above the iframe
+
+  > .video-overlay-header {
+    font-family: $font-family-serif;
+    letter-spacing: 6px;
+    text-shadow: 1px 1px 2px $headings-color;
+  }
+
+  > .video-overlay-text {
+    font-family: $font-family-serif;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 2px $headings-color;
+  }
+}
+
+#video-cover {
+  background: #000; /* Fallback background */
+  height: 300px;
+  overflow: hidden;
   position: relative;
-  margin-top: -502px;
-  margin-bottom: 150px;
-}
-#map-content {
-  margin-top: 40px;
-  padding: 50px 60px;
-  background: #fff;
-  -webkit-transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
-  transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
-}
-#btn-show-content {
-  padding: 20px;
-  background: #fff;
-  cursor: pointer;
-  display: inline-block;
-  -webkit-transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
-  transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
-}
-.toggle-map-content {
-  opacity: 0;
-  visibility: hidden;
-}
-.pointer-events-none {
-  pointer-events: none;
-}
-.pointer-events-auto {
-  pointer-events: auto;
+  width: 100%;
+
+  iframe {
+    left: 50%;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+  }
 }
 
 /* ==========================================================================
 Footer
 ========================================================================== */
-footer {
-  .content {
-    border-top: 1px solid $keyline-color;
-    padding-bottom: 20px;
-  }
-  .to-top-wrapper {
-    font-size: 30px;
-    display: block;
-    cursor: pointer;
-    margin: -25px auto 50px;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    border: 1px solid $keyline-color;
-    background: #fff;
-  }
-  .to-top-wrapper .to-top {
-    display: block;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -ms-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
-  }
-  .to-top-wrapper .to-top:hover {
-    margin-top: -5px;
-  }
-  span.fa-heart {
-    color: #ff415c;
-    font-size: 18px;
-    margin: 0 2px;
-  }
-}
+.to-top-wrapper {
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid rgba($body-color, 0.25);
+  border-radius: 50%;
+  color: rgba($body-color, 0.75);
+  display: flex;
+  font-size: 1.5rem;
+  height: 3rem;
+  justify-content: center;
+  left: 50%;
+  position: absolute;
+  text-decoration: none;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+  width: 3rem;
+  z-index: 1;
 
-/* ==========================================================================
-Bootstrap override
-========================================================================== */
-body.modal-open {
-  padding-right:0 !important;
-}
-.modal-body {
-  padding:25px;
+  // Hover: lift slightly + animate arrow
+  &:hover {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  &:hover i {
+    animation: floating-arrow 1s ease-in-out infinite;
+  }
 }
