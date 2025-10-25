@@ -222,65 +222,63 @@ import './youtube';
 
         ibanDetailsContainer.appendChild(ibanContainer);
     };
-    
+
+    handleIbanVisibility();
+
+    /********************** RSVP **********************/
     const allergiesInput = document.querySelector('input[name="allergies"]');
-    const allergiesRow = allergiesInput.closest('.row');
+    const allergiesInputGroup = allergiesInput.closest('.form-input-group');
     const destinationInput = document.querySelector('select[name="destination"]');
-    const destinationRow = destinationInput.closest('.row');
+    const destinationInputGroup = destinationInput.closest('.form-input-group');
     const destinationOtherInput = document.querySelector('input[name="destinationOther"]');
-    const destinationOtherRow = destinationOtherInput.closest('.row');
+    const destinationOtherInputGroup = destinationOtherInput.closest('.form-input-group');
     const notesInput = document.querySelector('input[name="notes"]');
-    const notesRow = notesInput.closest('.row');
+    const notesInputGroup = notesInput.closest('.form-input-group');
     const responseInput = document.querySelector('select[name="response"]');
 
     const handleRsvpFields = () => {
         if (responseInput.value) {
             responseInput.classList.add('has-value');
         }
-        if (responseInput.value === 'Sì') {
-            allergiesRow.classList.remove('hidden-by-default');
-            destinationRow.classList.remove('hidden-by-default');
-            notesRow.classList.remove('hidden-by-default');
+
+        const isComing = responseInput.value === 'Sì';
+
+        allergiesInputGroup.classList.toggle('d-none', !isComing);
+        destinationInputGroup.classList.toggle('d-none', !isComing);
+        notesInputGroup.classList.toggle('d-none', !isComing);
+
+        if (isComing) {
             if (destinationInput.value) {
                 destinationInput.classList.add('has-value');
             }
-            if (destinationInput.value === "Altro") {
-                destinationOtherRow.classList.remove('hidden-by-default');
+            const isDestinationOther = destinationInput.value === 'Altro';
+            destinationOtherInputGroup.classList.toggle('d-none', !isDestinationOther);
+            if (!isDestinationOther) {
+                destinationOtherInput.value = '';
             }
         } else {
+            // Clear all fields if not coming
             allergiesInput.value = '';
-            allergiesRow.classList.add('hidden-by-default');
             destinationInput.value = '';
             destinationInput.classList.remove('has-value');
-            destinationRow.classList.add('hidden-by-default');
-            destinationInput.value = '';
             destinationOtherInput.value = '';
-            destinationOtherRow.classList.add('hidden-by-default');
             notesInput.value = '';
-            notesRow.classList.add('hidden-by-default');
+            destinationOtherInputGroup.classList.add('d-none');
         }
-    }
+    };
 
     responseInput.addEventListener('change', (event) => {
         event.target.classList.add('has-value');
         handleRsvpFields();
     });
 
-    destinationRow.addEventListener('change', (event) => {
+    destinationInputGroup.addEventListener('change', (event) => {
         event.target.classList.add('has-value');
-        if (event.target.value === 'Altro') {
-            destinationOtherRow.classList.remove('hidden-by-default');
-        } else {
-            destinationOtherInput.value = '';
-            destinationOtherRow.classList.add('hidden-by-default');
-        }
+        handleRsvpFields();
     });
 
-    handleIbanVisibility();
     handleRsvpFields();
 
-
-    /********************** RSVP **********************/
     const rsvpForm = document.getElementById('rsvp-form');
     rsvpForm.addEventListener('submit', async function (e) {
         e.preventDefault();
@@ -308,10 +306,8 @@ import './youtube';
                 alertWrapper.innerHTML = alert_markup('danger', data.message);
             } else {
                 alertWrapper.innerHTML = '';
-                const rsvpModal = document.getElementById('rsvp-modal');
-                rsvpModal.classList.add('in');
-                rsvpModal.style.display = 'block';
-                document.body.classList.add('modal-open');
+                const rsvpModal = new bootstrap.Modal(document.getElementById('rsvp-modal'));
+                rsvpModal.show();
                 rsvpForm.reset();
                 handleRsvpFields();
             }
@@ -321,28 +317,16 @@ import './youtube';
         }
     });
 
-    const rsvpModal = document.getElementById('rsvp-modal');
-    const closeButton = rsvpModal.querySelector('.close');
-
-    function hideModal() {
-        rsvpModal.classList.remove('in');
-        rsvpModal.style.display = 'none';
-        document.body.classList.remove('modal-open');
-    }
-
-    closeButton.addEventListener('click', hideModal);
-    rsvpModal.addEventListener('click', function(e) {
-        if (e.target === rsvpModal) {
-            hideModal();
-        }
-    });
-
+    const rsvpModalElement = document.getElementById('rsvp-modal');
+    const rsvpModal = new bootstrap.Modal(rsvpModalElement);
 });
 
 /********************** Extras **********************/
-}
-
-// alert_markup
-function alert_markup(alert_type, msg) {
-    return '<div class="alert alert-' + alert_type + '" role="alert">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span>&times;</span></button></div>';
+const alert_markup = (type, message) => {
+    return [
+        `<div class="alert alert-${type} alert-dismissible fade show text-start" role="alert">`,
+        `   <div>${message}</div>`,
+        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+        '</div>'
+    ].join('')
 }
