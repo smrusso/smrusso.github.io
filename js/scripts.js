@@ -153,8 +153,6 @@ import './youtube';
 
     const displayQrCodeMessage = (container) => {
         const messageH4 = document.createElement('h4');
-        messageH4.style.textAlign = 'center';
-        messageH4.style.textTransform = 'none';
         messageH4.textContent = 'Scansiona il codice QR per vedere i dettagli';
         container.innerHTML = '';
         container.appendChild(messageH4);
@@ -177,8 +175,6 @@ import './youtube';
         }
 
         const loadingIndicator = document.createElement('h4');
-        loadingIndicator.style.textAlign = 'center';
-        loadingIndicator.style.textTransform = 'none';
         loadingIndicator.textContent = 'Decifrando i dati...';
         ibanDetailsContainer.appendChild(loadingIndicator);
 
@@ -214,14 +210,10 @@ import './youtube';
         ibanOwnerEl.textContent = decryptedIban.owner;
 
         const ibanH4 = document.createElement('h4');
-        ibanH4.style.textAlign = 'center';
-        ibanH4.style.textTransform = 'none';
         ibanH4.innerHTML = 'IBAN: ';
         ibanH4.appendChild(ibanEl);
 
         const ownerH4 = document.createElement('h4');
-        ownerH4.style.textAlign = 'center';
-        ownerH4.style.textTransform = 'none';
         ownerH4.innerHTML = 'Intestato a: ';
         ownerH4.appendChild(ibanOwnerEl);
 
