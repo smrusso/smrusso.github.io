@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     window.onYouTubeIframeAPIReady =  function () {
-        const player = new YT.Player('player', {
+        const player = new YT.Player('rome-video-player', {
             videoId: '0m7H6_ZI1iM', // 🔹 Replace with your YouTube video ID
             playerVars: {
                 autoplay: 1,
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function resizeYouTubeCover() {
-        const wrapper = document.getElementById('video-cover');
+        const wrapper = document.getElementById('rome-video-content');
         const iframe = wrapper.querySelector('iframe');
         if (!iframe) return; // wait until iframe exists
 
