@@ -1,5 +1,15 @@
+import * as bootstrap from 'bootstrap';
+
 document.addEventListener('DOMContentLoaded', function () {
-    /***************** Smooth Scrolling ******************/
+    const navToggler = document.getElementById('navbar-toggler-custom');
+    const offcanvasNavbar = new bootstrap.Offcanvas('#offcanvasNavbar');
+
+    navToggler.addEventListener('click', function (event) {
+        navToggler.classList.toggle('active');
+        offcanvasNavbar.toggle();
+        event.preventDefault();
+    });
+
     /**
      * Smooth scroll to a Y position with ease-in-out
      * @param {number} targetY - Y-coordinate to scroll to
@@ -32,6 +42,8 @@ document.addEventListener('DOMContentLoaded', function () {
             // Only handle links on the same page
             if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '')
                 && location.hostname === this.hostname) {
+                navToggler.classList.remove('active');
+                offcanvasNavbar.hide();
 
                 let target = document.querySelector(this.hash);
                 target = target ? target : document.querySelector('[name=' + this.hash.slice(1) + ']');

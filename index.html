@@ -31,33 +31,47 @@
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
-<section class="hero">
-    <section class="navigation">
-        <header>
-            <div class="header-content">
-                <div class="logo"><a href="#"><img src="img/logo.png" alt="Logo"></a></div>
-                <div class="header-nav">
-                    <nav>
-                        <ul class="primary-nav">
-                            <li><a href="#intro">How we met</a></li>
-                            <li><a href="#events">Events</a></li>
-                            <li><a href="#instagram">Instagram</a></li>
-                            <li><a href="#eng-pics">Engagement</a></li>
-                            <li class="hidden-sm hidden-xs"><a href="#video-bg">Glimpse of the city</a></li>
-                        </ul>
-                        <ul class="member-actions">
-                            <li><a href="#map" class="login">Venue</a></li>
-                            <li><a href="#rsvp" class="btn-white btn-small">RSVP</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="navicon">
-                    <a class="nav-toggle" href="#"><span></span></a>
-                </div>
+
+<nav class="navbar sticky-top navbar-expand-lg" data-bs-theme="dark">
+    <div class="container px-3">
+        <a class="navbar-brand" href="#hero">
+            <img src="img/logo.png" alt="Logo" width="30" height="24">
+        </a>
+        <a id="navbar-toggler-custom" class="navbar-toggler-custom pe-4 d-lg-none" href="#"><span></span></a>
+
+        <div class="offcanvas offcanvas-top offcanvas-navbar" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-body align-content-center align-content-lg-stretch">
+                <ul class="navbar-nav flex-grow-1 align-items-center justify-content-center justify-content-lg-end">
+                    <li class="nav-item mb-3 mb-lg-0">
+                        <a class="nav-link icon-link link-body-emphasis link-underline-opacity-0" aria-current="page" href="#event">
+                            <i class="fa-solid fa-home d-none d-lg-inline-block"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item mb-3 mb-lg-0">
+                        <a class="nav-link link-body-emphasis link-underline-opacity-0" href="#ceremony">
+                            <i class="fa-solid fa-cross d-none d-lg-inline-block"></i> Cerimonia
+                        </a>
+                    </li>
+                    <li class="nav-item mb-3 mb-lg-0">
+                        <a class="nav-link link-body-emphasis link-underline-opacity-0" href="#party">
+                            <i class="fa-solid fa-utensils d-none d-lg-inline-block"></i> Ricevimento
+                        </a>
+                    </li>
+                    <li class="nav-item mb-3 mb-lg-0">
+                        <a class="nav-link link-body-emphasis link-underline-opacity-0" href="#wedding-list">
+                            <i class="fa-solid fa-gift d-none d-lg-inline-block"></i> Lista di nozze
+                        </a>
+                    </li>
+                    <li class="nav-item ms-lg-auto mt-2 mt-lg-0">
+                        <a class="nav-link border border-3 border-primary link-body-emphasis link-underline-opacity-0 px-4 px-lg-0 py-1 py-lg-0 ms-lg-auto rounded-pill" href="#rsvp">
+                            <i class="fa-solid fa-envelope d-none d-lg-inline-block"></i> RSVP
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </header>
-    </section>
-</section>
+        </div>
+    </div>
+</nav>
 
 <div id="hero" class="container mx-auto"></div>
 
