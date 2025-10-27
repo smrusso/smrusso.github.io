@@ -13,8 +13,12 @@ $link-color: $body-color;
 $navbar-dark-color: #fff;
 $navbar-nav-link-padding-x: .75rem;
 $navbar-padding-x: 8px;
-$offcanvas-vertical-height: 100%;
+$offcanvas-bg-color: transparent;
 $offcanvas-border-width: 0;
+$offcanvas-horizontal-width: 100%;
+$offcanvas-padding-x: 0;
+$offcanvas-padding-y: 0;
+$offcanvas-vertical-height: 100%;
 $primary: #800032;
 
 // 3. Bootstrap required imports
@@ -212,7 +216,6 @@ Navigation
 @media (max-width: 991px) {
   .offcanvas-navbar {
     backdrop-filter: blur(5px) brightness(25%);
-    background-color: inherit;
   }
 
   .nav-item:last-child > .nav-link {
