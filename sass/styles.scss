@@ -158,8 +158,14 @@ Navigation
 }
 
 .navbar-toggler-custom {
-  z-index: 999999;
+  align-items: center;
   cursor: pointer;
+  display: flex;
+  height: 2.5rem;
+  justify-content: center;
+  position: relative;
+  width: 2.5rem;
+  z-index: 999999;
 
   &.active {
     span {
