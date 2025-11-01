@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const handleIbanVisibility = async () => {
         document.getElementById('gift-decrypting').classList.remove('d-none');
 
-        const secret = new URLSearchParams(window.location.search).get('secret');
+        const secret = new URLSearchParams(window.location.search).get('s');
         if (!secret) {
             document.getElementById('gift-scan-qr').classList.remove('d-none');
             document.getElementById('gift-decrypting').classList.add('d-none');
