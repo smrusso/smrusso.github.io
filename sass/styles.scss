@@ -9,6 +9,7 @@ $font-family-serif: 'Noto Serif', Georgia, 'Times New Roman', serif;
 $headings-color: #748351;
 $headings-font-weight: 700;
 $headings-margin-bottom: 0.375rem;
+$hr-border-width: 2px;
 $line-height-base: 1.7;
 $link-color: $body-color;
 $modal-inner-padding: 2.5rem;
@@ -24,6 +25,7 @@ $offcanvas-vertical-height: 100%;
 $primary: #b47b78;
 $primary-text-emphasis: shift-color($primary, -20%);
 $secondary: $body-color;
+$vr-border-width: 2px;
 
 // 3. Bootstrap required imports
 @import "../node_modules/bootstrap/scss/variables";
