@@ -245,7 +245,7 @@ Navigation
     display: block;
     margin: 0 auto;
     height: calc(2 * #{$font-size-base} * 1.75 * #{$line-height-base});
-    max-width: 85%;
+    max-width: 75%;
   }
 
   .nav-item:last-child > .nav-link {
