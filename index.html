@@ -84,7 +84,7 @@
     </div>
 </nav>
 
-<div id="hero" class="container mx-auto"></div>
+<div id="hero" class="container mx-auto rounded-bottom"></div>
 
 <div id="root" class="container">
     <div id="event" class="row justify-content-center mt-5">
@@ -98,7 +98,7 @@
 
     <div id="intro" class="row justify-content-center">
         <h6>Un po' di noi</h6>
-        <p class="quote fst-italic fw-light mb-0">
+        <p class="quote fst-italic fw-light mb-1 mb-lg-0">
             In passato, la natura umana era diversa. Gli esseri umani avevano due facce orientate in
             direzione opposta, quattro braccia, quattro mani e quattro gambe. La loro conformazione li rendeva
             forti e vigorosi, capaci perfino di sfidare le divinità. Un giorno Zeus disse: &quot;Penso di aver
@@ -120,17 +120,18 @@
         <hr class="col-9 my-5">
     </div>
 
-    <div class="row g-5 justify-content-around">
+    <div class="row justify-content-center">
         <div id="ceremony" class="col-12 col-lg-5 justify-content-center">
             <h6>Cerimonia</h6>
             <p>
-                Basilica di Santo Stefano Rotondo al Celio - 16.30<br>
+                Basilica di Santo Stefano Rotondo al Celio – 16.30<br>
+                Via Santo Stefano Rotondo 7, Roma –
                 <a class="icon-link link-underline link-underline-opacity-0" href="https://maps.app.goo.gl/btD1bBLJvf2GTjd56" target="_blank">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>Via Santo Stefano Rotondo 7, Roma</span>
+                    <i class="fa-solid fa-location-dot me-n1"></i>
+                    <span class="text-decoration-underline">Indicazioni</span>
                 </a>
             </p>
-            <img class="col-12" src="img/church.jpg" alt="Santo Stefano Rotondo">
+            <img class="col-12 rounded" src="img/church.jpg" alt="Santo Stefano Rotondo">
         </div>
 
         <div class="col-1 d-none d-lg-flex justify-content-center">
@@ -144,19 +145,19 @@
         <div class="col-12 col-lg-5 justify-content-center mt-0 mt-lg-auto">
             <h6 id="party" class="header">Ricevimento</h6>
             <p>
-                Casale della Falcognana - 18.00/18.30<br>
-                Via Ardeatina 1491, Roma -
-                <a class="icon-link icon-link-hover link-underline link-underline-opacity-0" href="https://maps.app.goo.gl/HN17rV2Bu1GSFL8p9" target="_blank">
+                Casale della Falcognana – 18.00<br>
+                Via Ardeatina 1491, Roma –
+                <a class="icon-link link-underline link-underline-opacity-0" href="https://maps.app.goo.gl/QMkhr2ee9JSWqun16" target="_blank">
+                    <i class="fa-solid fa-location-dot me-n1"></i>
                     <span class="text-decoration-underline">Indicazioni</span>
-                    <i class="fa-solid fa-map-location-dot" style="transform: translateY(0.15rem);"></i>
                 </a>
             </p>
-            <img class="col-12" src="img/venue.jpg" alt="Casale della Falcognana">
+            <img class="col-12 rounded" src="img/venue.jpg" alt="Casale della Falcognana">
         </div>
     </div>
 
     <div class="row justify-content-center">
-        <hr class="col-6 my-5">
+        <hr class="col-11 my-5">
     </div>
 
     <div id="wedding-list" class="row justify-content-center">
@@ -167,15 +168,18 @@
             Ogni suggerimento è ben accetto!
             Se voleste aiutarci a scegliere e partecipare al nostro viaggio di nozze:
         </p>
-        <h5 id="gift-decrypting">Decifrando i dati...</h5>
-        <h5 id="gift-scan-qr" class="d-none">Scansiona il codice QR per vedere i dettagli</h5>
-        <h5 id="gift-iban" class="d-none">IBAN: <span id="gift-iban-value"></span></h5>
-        <h5 id="gift-owner" class="d-none">Intestato a: <span id="gift-owner-value"></span></h5>
-        <img class="col-12 col-lg-6 mt-3" src="img/travel-min.jpg" alt="Simone e Martina in aeroporto" />
+        <p id="gift-decrypting" class="fs-5 mt-3">Decifrando i dati...</p>
+        <p id="gift-scan-qr" class="d-none fs-5 mt-3">Scansiona il codice QR sull'invito per vedere i dettagli</p>
+        <p id="gift-iban" class="d-none fs-5 mb-n1 mt-3">IBAN: <span id="gift-iban-value"></span></p>
+        <p id="gift-owner" class="d-none fs-5">Intestato a: <span id="gift-owner-value"></span></p>
+        <div class="col-12 col-lg-6 mt-3">
+            <img class="col-12 rounded" src="img/travel-min.jpg" alt="Simone e Martina in aeroporto" />
+        </div>
+
     </div>
 
     <div class="row justify-content-center">
-        <hr class="col-3 my-5">
+        <hr class="col-9 my-5">
     </div>
 
     <div id="rsvp" class="row rsvp justify-content-center">
@@ -184,8 +188,8 @@
                 <div class="modal-content position-relative">
                     <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="modal-body text-center">
-                        <h6 style="color: #595e50;">Grazie!</h6>
-                        <p class="text-reset">Abbiamo registrato la tua risposta</p>
+                        <h6>Grazie!</h6>
+                        <p class="mb-0">Abbiamo registrato la tua risposta</p>
                     </div>
                 </div>
             </div>
