@@ -239,6 +239,13 @@ Navigation
     backdrop-filter: blur(5px) brightness(25%);
   }
 
+  #nav-mobile-header {
+    display: block;
+    margin: 0 auto;
+    height: calc(2 * #{$font-size-base} * 1.75 * #{$line-height-base});
+    max-width: 85%;
+  }
+
   .nav-item:last-child > .nav-link {
     color: $primary !important;
   }
