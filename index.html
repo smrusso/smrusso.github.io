@@ -93,7 +93,7 @@
     </div>
 
     <div class="row justify-content-center">
-        <hr class="col-11 my-5">
+        <hr class="col-11 my-5 text-primary">
     </div>
 
     <div id="intro" class="row justify-content-center">
@@ -117,7 +117,7 @@
     </div>
 
     <div class="row justify-content-center">
-        <hr class="col-9 my-5">
+        <hr class="col-9 my-5 text-primary">
     </div>
 
     <div class="row justify-content-center">
@@ -135,7 +135,7 @@
         </div>
 
         <div class="col-1 d-none d-lg-flex justify-content-center">
-            <div class="vr h-100 my-2"></div>
+            <div class="vr h-100 my-2 text-primary"></div>
         </div>
 
         <div class="row d-lg-none justify-content-center">
@@ -195,50 +195,50 @@
             </div>
         </div>
 
-        <h6 style="color: #595e50;">RSVP</h6>
+        <h6>RSVP</h6>
         <p class="text-reset">È gradita gentile conferma entro il 5 aprile 2026</p>
 
         <!-- Use a custom form style, as you would need to completely override Bootstrap's to achieve the same appearance. -->
-        <form id="rsvp-form" class="rsvp-form col-12 col-lg-6" action="" method="POST">
+        <form id="rsvp-form" class="rsvp-form col-12 col-lg-6 text-secondary" action="" method="POST">
             <input type="hidden" name="event" value="NgfMX2kCOAtMp95gTqE1Bos3vkLS3T0npaGu9hY1cFM">
             <div class="form-input-group col-12">
-                <i class="fa-solid fa-user ms-3 text-primary"></i>
-                <input id="rsvp-form-name" class="col-12 text-primary" type="text" name="name" placeholder="Nome e cognome" required>
+                <i class="fa-solid fa-user ms-3"></i>
+                <input id="rsvp-form-name" class="col-12 text-secondary" type="text" name="name" placeholder="Nome e cognome" required>
             </div>
             <div class="form-input-group has-select col-12">
-                <i class="fa-solid fa-calendar ms-3 text-primary"></i>
+                <i class="fa-solid fa-calendar ms-3"></i>
                 <select id="rsvp-form-response" class="col-12 form-select" name="response" required>
-                    <option class="text-primary" value="" disabled hidden selected>Ci sarai?</option>
-                    <option class="text-primary" value="Sì">Ci sarò 😚</option>
-                    <option class="text-primary" value="No">Non ci sarò 😓</option>
+                    <option value="" disabled hidden selected>Ci sarai?</option>
+                    <option class="text-secondary" value="Sì">Ci sarò 😚</option>
+                    <option class="text-secondary" value="No">Non ci sarò 😓</option>
                 </select>
             </div>
             <div class="form-input-group col-12 d-none">
-                <i class="fa-solid fa-skull-crossbones ms-3 text-primary"></i>
-                <input id="rsvp-form-allergies" class="col-12 text-primary" type="text" name="allergies" placeholder="Allergie e intolleranze">
+                <i class="fa-solid fa-skull-crossbones ms-3 text-secondary"></i>
+                <input id="rsvp-form-allergies" class="col-12 text-secondary" type="text" name="allergies" placeholder="Allergie e intolleranze">
             </div>
-            <div class="form-input-group col-12 d-none">
-                <i class="fa-solid fa-pen-to-square ms-3 text-primary"></i>
-                <input id="rsvp-form-notes" class="col-12 text-primary" type="text" name="notes" placeholder="Note">
+            <div class="form-input-group col-12 d-none text-secondary">
+                <i class="fa-solid fa-pen-to-square ms-3"></i>
+                <input id="rsvp-form-notes" class="col-12 text-secondary" type="text" name="notes" placeholder="Note">
             </div>
             <div class="form-input-group col-12 d-none has-select">
-                <i class="fa-solid fa-plane-departure ms-3 text-primary"></i>
-                <select id="rsvp-form-destination" class="col-12 form-select" name="destination">
-                    <option class="text-primary" value="" disabled hidden selected>Dove andremo?</option>
-                    <option class="text-primary" value="Cina">Cina</option>
-                    <option class="text-primary" value="India">India</option>
-                    <option class="text-primary" value="Perù">Perù</option>
-                    <option class="text-primary" value="Altro">Altro</option>
+                <i class="fa-solid fa-plane-departure ms-3"></i>
+                <select id="rsvp-form-destination" class="col-12 form-select text-secondary" name="destination">
+                    <option value="" disabled hidden selected>Dove andremo?</option>
+                    <option class="text-secondary" value="Cina">Cina</option>
+                    <option class="text-secondary" value="India">India</option>
+                    <option class="text-secondary" value="Perù">Perù</option>
+                    <option class="text-secondary" value="Altro">Altro</option>
                 </select>
             </div>
-           <div class="form-input-group col-12 d-none">
-                <i class="fa-solid fa-globe ms-3 text-primary"></i>
-                <input id="rsvp-form-destination-other" class="col-12 text-primary" type="text" name="destinationOther" placeholder="Destinazione">
-           </div>
+            <div class="form-input-group col-12 d-none">
+                <i class="fa-solid fa-globe ms-3 "></i>
+                <input id="rsvp-form-destination-other" class="col-12 text-secondary" type="text" name="destinationOther" placeholder="Destinazione">
+            </div>
             <div class="row">
                 <div class="col-12" id="alert-wrapper"></div>
             </div>
-            <button class="btn btn-primary col-12 text-uppercase fs-6">Invia</button>
+            <button class="btn btn-body col-12 text-uppercase fs-6">Invia</button>
         </form>
     </div>
 </div>
