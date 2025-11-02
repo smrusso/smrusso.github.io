@@ -7,7 +7,6 @@ A beautiful, feature-rich, and device-friendly static wedding website.
 -   **Responsive Design:** Fully responsive and works on all devices.
 -   **RSVP Functionality:** Guests can RSVP, and the data is directly uploaded to a Google Sheet.
 -   **Email Alerts:** Receive email alerts when someone RSVPs.
--   **Embedded Video:** Features a YouTube video of the city.
 -   **Cost-Free:** Can be hosted for free on services like GitHub Pages, with Google Sheets for RSVP data storage.
 
 ## Getting Started
@@ -47,3 +46,8 @@ The website can be customized by modifying the following files:
 -   `js/scripts.js`: To modify the RSVP form submission logic and other dynamic behaviors.
 
 The RSVP functionality requires setting up a Google Apps Script to handle form submissions to a Google Sheet. Instructions for this can be found in the project's documentation.
+
+## Credits
+
+ - [Original website](https://github.com/rampatra/wedding-website) by [Ram Patra](https://github.com/rampatra)
+ - [Rome Skyline](https://www.flickr.com/photos/22746515@N02/8012016319) courtesy of [Bert Kaufmann](https://www.flickr.com/photos/22746515@N02), [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/deed.it)
