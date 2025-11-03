@@ -4,17 +4,8 @@ const path = require('path');
 
 const distDir = path.join(__dirname, '../dist');
 const assetsToCopy = [
-    'android-chrome-192x192.png',
-    'android-chrome-256x256.png',
-    'apple-touch-icon.png',
-    'CNAME',
-    'favicon.ico',
-    'favicon-16x16.png',
-    'favicon-32x32.png',
-    'index.html',
-    'manifest.json',
     'img',
-    'safari-pinned-tab.svg',
+    'index.html',
     'js/decrypt.js',
 ];
 
@@ -51,6 +42,29 @@ async function build() {
                 process.exit(1);
             }
         }
+    }
+
+    console.log('Processing favicon directory...');
+    const faviconSourceDir = path.join(__dirname, '../favicon');
+    const faviconDestDir = path.join(distDir, 'favicon');
+    try {
+        await fs.mkdir(faviconDestDir, { recursive: true });
+        const files = await fs.readdir(faviconSourceDir);
+        for (const file of files) {
+            const sourceFile = path.join(faviconSourceDir, file);
+            if (file === 'favicon.ico') {
+                const destFile = path.join(distDir, 'favicon.ico');
+                await fs.copyFile(sourceFile, destFile);
+                console.log('Copied favicon.ico to dist root');
+            } else {
+                const destFile = path.join(faviconDestDir, file);
+                await fs.copyFile(sourceFile, destFile);
+                console.log(`Copied ${file} to dist/favicon`);
+            }
+        }
+    } catch (err) {
+        console.error(`⚠Error processing favicon directory:`, err);
+        process.exit(1);
     }
 
     console.log('Build complete: dist directory prepared and assets copied.');
