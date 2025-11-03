@@ -6,7 +6,6 @@ const distDir = path.join(__dirname, '../dist');
 const assetsToCopy = [
     'img',
     'index.html',
-    'js/decrypt.js',
 ];
 
 async function copyAsset(sourcePath, destPath) {

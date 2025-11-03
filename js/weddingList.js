@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const worker = new Worker('js/decrypt.js');
+    const worker = new Worker('js/decrypt.min.js');
 
     const handleIbanVisibility = async () => {
         document.getElementById('gift-decrypting').classList.remove('d-none');

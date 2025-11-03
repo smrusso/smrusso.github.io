@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "node scripts/build.js",
-    "build:css": "sass sass/styles.scss dist/styles.min.css --style=compressed",
-    "build:js": "esbuild js/scripts.js --bundle --minify --sourcemap --outfile=dist/scripts.min.js",
+    "build:css": "sass sass/styles.scss dist/css/styles.min.css --style=compressed",
+    "build:js": "esbuild decrypt.min=js/decrypt.js scripts.min=js/scripts.js  --bundle --minify --outdir=dist/js --sourcemap",
     "build": "npm run prebuild && npm run build:css && npm run build:js"
   },
   "repository": {
