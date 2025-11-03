@@ -50,33 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    document.querySelectorAll('.rsvp-form .form-input-group select').forEach(select => {
-        const wrapper = select.closest('.form-input-group');
-        let isOpen = false;
-
-        // When the select loses focus, ensure we close it
-        select.addEventListener('blur', () => {
-            wrapper.classList.remove('select-open');
-            isOpen = false;
-        });
-
-        select.addEventListener('click', () => {
-            // Let the browser process the open/close state first
-            setTimeout(() => {
-                // If the select just got focus but wasn't open before, mark as open
-                if (!isOpen) {
-                    wrapper.classList.add('select-open');
-                    isOpen = true;
-                }
-                // If it was already open, the user just closed it
-                else {
-                    wrapper.classList.remove('select-open');
-                    isOpen = false;
-                }
-            }, 0);
-        });
-    });
-
     rsvpForm.addEventListener('change', (e) => {
         if (e.target.matches('select, input, textarea')) {
             e.target.classList.add('has-value');

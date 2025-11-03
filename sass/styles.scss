@@ -357,7 +357,7 @@ $form-placeholder: rgba($body-color, 0.7);
       transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    &.select-open::after {
+    &:has(select:open)::after {
       transform: translateY(-50%) rotate(180deg);
     }
   }

@@ -210,29 +210,34 @@
         <!-- Use a custom form style, as you would need to completely override Bootstrap's to achieve the same appearance. -->
         <form id="rsvp-form" class="rsvp-form col-12 col-lg-6 text-secondary" action="" method="POST">
             <input type="hidden" name="event" value="NgfMX2kCOAtMp95gTqE1Bos3vkLS3T0npaGu9hY1cFM">
+
             <div class="form-input-group col-12">
                 <i class="fa-solid fa-user ms-3"></i>
-                <input id="rsvp-form-name" class="col-12 text-secondary" type="text" name="name" placeholder="Nome e cognome" required>
+                <input id="rsvp-form-name" class="col-12 text-secondary" type="text" name="name" placeholder="Nome e cognome" required aria-label="Nome e cognome">
             </div>
-            <div class="form-input-group has-select col-12">
+
+            <div class="form-input-group col-12">
                 <i class="fa-solid fa-calendar ms-3"></i>
-                <select id="rsvp-form-response" class="col-12 form-select" name="response" required>
+                <select id="rsvp-form-response" class="col-12 form-select" name="response" required aria-label="Ci sarai?">
                     <option value="" disabled hidden selected>Ci sarai?</option>
                     <option class="text-secondary" value="Sì">Ci sarò 😚</option>
                     <option class="text-secondary" value="No">Non ci sarò 😓</option>
                 </select>
             </div>
+
             <div class="form-input-group col-12 d-none">
                 <i class="fa-solid fa-skull-crossbones ms-3 text-secondary"></i>
-                <input id="rsvp-form-allergies" class="col-12 text-secondary" type="text" name="allergies" placeholder="Allergie e intolleranze">
+                <input id="rsvp-form-allergies" class="col-12 text-secondary" type="text" name="allergies" placeholder="Allergie e intolleranze" aria-label="Allergie e intolleranze">
             </div>
+
             <div class="form-input-group col-12 d-none text-secondary">
                 <i class="fa-solid fa-pen-to-square ms-3"></i>
-                <input id="rsvp-form-notes" class="col-12 text-secondary" type="text" name="notes" placeholder="Note">
+                <input id="rsvp-form-notes" class="col-12 text-secondary" type="text" name="notes" placeholder="Note" aria-label="Note">
             </div>
-            <div class="form-input-group col-12 d-none has-select">
+
+            <div class="form-input-group col-12 d-none">
                 <i class="fa-solid fa-plane-departure ms-3"></i>
-                <select id="rsvp-form-destination" class="col-12 form-select text-secondary" name="destination">
+                <select id="rsvp-form-destination" class="col-12 form-select" name="destination" aria-label="Destinazione">
                     <option value="" disabled hidden selected>Dove andremo?</option>
                     <option class="text-secondary" value="Cina">Cina</option>
                     <option class="text-secondary" value="India">India</option>
@@ -240,13 +245,16 @@
                     <option class="text-secondary" value="Altro">Altro</option>
                 </select>
             </div>
+
             <div class="form-input-group col-12 d-none">
                 <i class="fa-solid fa-globe ms-3 "></i>
-                <input id="rsvp-form-destination-other" class="col-12 text-secondary" type="text" name="destinationOther" placeholder="Destinazione">
+                <input id="rsvp-form-destination-other" class="col-12 text-secondary" type="text" name="destinationOther" placeholder="Destinazione" aria-label="Suggerimento destinazione">
             </div>
+
             <div class="row">
                 <div class="col-12" id="alert-wrapper"></div>
             </div>
+
             <button class="btn btn-body col-12 text-uppercase fs-6">Invia</button>
         </form>
     </div>
