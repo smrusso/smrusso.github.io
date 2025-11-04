@@ -17,11 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
         Object.entries(fields).map(([key, el]) => [key, el.closest('.form-input-group')])
     );
 
-    const showAlert = (type, message) => {
+    const showAlert = (type, header, body) => {
         alertWrapper.innerHTML = `
-            <div class="alert alert-${type} alert-dismissible fade show text-start" role="alert">
-                <div>${message}</div>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="alert alert-${type} alert-dismissible fade show align-items-center d-flex justify-content-between p-3" role="alert">
+                <div class="pe-2">
+                    <i class="fa fa-${type === 'info' ? 'solid' : 'regular'} fa-${type === 'info' ? 'hourglass' : 'face-frown'}" aria-hidden="true"></i>
+                    <span class="d-inline-block fw-bold">${header}</span>
+                    <span class="d-inline-block">${body}</span>
+                </div>
+                <button type="button" class="btn-close position-relative p-0" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>`;
     };
 
@@ -61,11 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const scriptId = document.getElementById('script-id')?.textContent?.trim();
         if (!scriptId) {
-            showAlert('danger', '<strong>Oh no 😞</strong> Usa il codice QR per inviare la risposta.');
+            showAlert('danger', 'Oh no!', 'Usa il codice QR per inviare la risposta.');
             return;
         }
 
-        showAlert('info', '<strong>Solo un minuto 🕜</strong> Stiamo salvando la tua risposta.');
+        showAlert('info', 'Solo un minuto!', 'Stiamo salvando la tua risposta.');
         const formData = new FormData(rsvpForm);
         const url = new URL(`https://script.google.com/macros/s/${scriptId}/exec`);
         url.search = new URLSearchParams(formData).toString();
@@ -75,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
 
             if (data.result === 'error') {
-                showAlert('danger', data.message);
+                showAlert('danger', data.header, data.message);
             } else {
                 alertWrapper.innerHTML = '';
                 new bootstrap.Modal(rsvpModalElement).show();
@@ -84,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (error) {
             console.error('Error:', error);
-            showAlert('danger', '<strong>Oh no 😞</strong> Abbiamo avuto un problema, per favore riprova più tardi.');
+            showAlert('danger', 'Oh no!', 'Abbiamo avuto un problema, per favore riprova più tardi.');
         }
     });
 
