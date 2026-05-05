@@ -118,5 +118,4 @@ You can further customize the Apps Script by setting these optional script prope
 ## Credits
 
  - [Original website](https://github.com/rampatra/wedding-website) by [Ram Patra](https://github.com/rampatra)
- - [Santo Stefano Rotondo al Celio](https://commons.wikimedia.org/wiki/File:Santo_Stefano_Rotondo_al_Celio_1.jpg) courtesy of [Andrea Bertozzi](https://commons.wikimedia.org/wiki/User:Lo_Scaligero), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en)
  - [Rome Skyline](https://www.flickr.com/photos/22746515@N02/8012016319) courtesy of [Bert Kaufmann](https://www.flickr.com/photos/22746515@N02), [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/deed.it)
